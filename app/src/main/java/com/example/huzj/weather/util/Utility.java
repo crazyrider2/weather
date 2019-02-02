@@ -48,6 +48,7 @@ public class Utility {
     public static boolean handleCityResponse(String response,int provinceId){
         if (!TextUtils.isEmpty(response)){
             try {
+                System.out.println("data="+response);
                 JSONArray allCities = new JSONArray(response);
                 for (int i=0;i<allCities.length();i++){
                     JSONObject cityObj = allCities.getJSONObject(i);

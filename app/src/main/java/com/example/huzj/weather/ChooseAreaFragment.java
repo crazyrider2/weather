@@ -3,7 +3,6 @@ package com.example.huzj.weather;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,6 @@ import com.example.huzj.weather.util.Utility;
 import org.litepal.crud.DataSupport;
 
 import java.io.IOException;
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,9 +71,10 @@ public class ChooseAreaFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (currentLevel==LEVEL_PROVINCE){
                     selectedProvince= provinceList.get(position);
+                    queryCities();
                 }else if (currentLevel==LEVEL_CITY){
                     selectedCity=cityList.get(position);
-
+                    queryCounties();
                 }
             }
         });
@@ -85,9 +84,9 @@ public class ChooseAreaFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (currentLevel==LEVEL_COUNTY){
-
+                    queryCities();
                 }else if (currentLevel==LEVEL_CITY){
-
+                    queryProvinces();
                 }
             }
         });
@@ -190,7 +189,7 @@ public class ChooseAreaFragment extends Fragment {
             currentLevel=LEVEL_CITY;
         }else {
             int proviceCode = selectedProvince.getProviceCode();
-            String address="http://guolin.tech/api/china"+proviceCode;
+            String address="http://guolin.tech/api/china/"+proviceCode;
             queryFromServer(address,"city");
         }
     }

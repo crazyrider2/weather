@@ -21,9 +21,9 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:background="@mipmap/ic_launcher"/>
+</RelativeLayout>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/list_view"/>
-</RelativeLayout>
 </LinearLayout>
