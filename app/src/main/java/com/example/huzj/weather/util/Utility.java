@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import com.example.huzj.weather.db.City;
 import com.example.huzj.weather.db.County;
 import com.example.huzj.weather.db.Province;
+import com.example.huzj.weather.gson.Weather;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -90,5 +92,22 @@ public class Utility {
             }
         }
         return false;
+    }
+
+    /**
+     * 解析返回的天气信息
+     * @param response
+     * @return
+     */
+    public static Weather handWeatherResponse(String response){
+        try {
+            JSONObject weatherObj = new JSONObject(response);
+            JSONArray heWeather = weatherObj.getJSONArray("HeWeather");
+            String weatherContent = heWeather.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent,Weather.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
