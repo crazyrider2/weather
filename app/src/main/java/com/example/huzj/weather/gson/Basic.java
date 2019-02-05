@@ -9,11 +9,13 @@ import com.google.gson.annotations.SerializedName;
 public class Basic {
     @SerializedName("city")
     public String cityName;
-    @SerializedName("id")
+    @SerializedName("cityid")
     public String weatherId;
-    public Update update;
+    @SerializedName("update_time")
+    public String updateTime;
+    /*public Update update;
     public class Update{
-        @SerializedName("loc")
+        @SerializedName("hours")
         public String updateTime;
-    }
+    }*/
 }
