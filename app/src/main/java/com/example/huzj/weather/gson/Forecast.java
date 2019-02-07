@@ -8,17 +8,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class Forecast {
 
-    public String date;
-    @SerializedName("cond")
-    public String moreInfo;
-    public String max;
-    public String min;
-    /*public class More{
-        @SerializedName("txt_d")
-        public String info;
+    private String date;
+    private String moreInfo;
+    private String max;
+    private String min;
+
+    public String getDate() {
+        return date;
     }
-    public class Temperature{
-        public String max;
-        public String min;
-    }*/
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getMoreInfo() {
+        return moreInfo;
+    }
+
+    public void setMoreInfo(String moreInfo) {
+        this.moreInfo = moreInfo;
+    }
+
+    public String getMax() {
+        return max;
+    }
+
+    public void setMax(String max) {
+        this.max = max;
+    }
+
+    public String getMin() {
+        return min;
+    }
+
+    public void setMin(String min) {
+        this.min = min;
+    }
 }
